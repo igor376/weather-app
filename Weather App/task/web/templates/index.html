@@ -16,7 +16,7 @@
     {% with message = get_flashed_messages() %}
     {% if message %}
     <div class="alert alert-primary" role="alert">
-        {{message[0]}}
+        {{ message[0] }}
     </div>
     {% endif %}
     {% endwith %}
@@ -29,7 +29,7 @@
     {% for city in cities %}
     <div class="card day">
         <div class="delete-wrapper">
-            <form action="#" method="POST">
+            <form action="{{ url_for('delete', city_id=city.id|e) }}" method="POST">
                 <input type="hidden" name="id" value="">
                 <button class="delete-button" type="submit">&#10006;</button>
             </form>
